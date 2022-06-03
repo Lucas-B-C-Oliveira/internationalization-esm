@@ -6,17 +6,23 @@
   "type": "module",
   "scripts": {
     "dev": "npx nodemon --ignore database.json --exec node --experimental-json-modules --experimental-top-level-await src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx mocha -w --parallel test/*.test.js",
+    "test:cov": "npx nyc npx mocha -r reify --parallel test/*.test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.3.6",
     "chalk": "^4.1.2",
     "chalk-table": "^1.0.2",
-    "draftlog": "^1.0.13"
+    "draftlog": "^1.0.13",
+    "mocha": "^8.4.0",
+    "nyc": "^15.1.0",
+    "sinon": "^9.2.4"
   },
   "devDependencies": {
-    "nodemon": "^2.0.16"
+    "nodemon": "^2.0.16",
+    "reify": "^0.20.12"
   }
 }
